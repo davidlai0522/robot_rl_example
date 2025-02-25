@@ -314,12 +314,24 @@ class TowerOfHanoi(ManipulationEnv):
         # First reset the parent class which will initialize the simulation
         super()._reset_internal()
 
-        # Reset poles to fixed positions
-        for pole, pos in zip(self.poles, [(-0.2, 0, 0), (0, 0, 0), (0.2, 0, 0)]):
-            pole_body_id = self.sim.model.body_name2id(pole.root_body)
-            self.sim.model.body_pos[pole_body_id] = np.array(pos)
-            self.sim.model.body_quat[pole_body_id] = np.array([0, 0, 0, 1])
 
+        # Loop through all objects and reset their positions
+        for obj_pos, obj_quat, obj in {
+            "pole_0": (np.array([0.2, 0, self.disk_height/2]), np.array([0, 0, 0, 1]), self.poles[0]),
+            "pole_1": (np.array([0.2, 0, self.disk_height/2 + self.disk_height]), np.array([0, 0, 0, 1]), self.poles[1]),
+            "pole_2": (np.array([0.2, 0, self.disk_height/2 + 2*self.disk_height]), np.array([0, 0, 0, 1]), self.poles[2]),
+        }.values():
+            self.sim.data.set_joint_qpos(obj.joints[0], np.concatenate([np.array(obj_pos), np.array(obj_quat)]))
+                
+
+        # Loop through all objects and reset their positions
+        for obj_pos, obj_quat, obj in {
+            "disk_0": (np.array([0.2, 0, self.disk_height/2]), np.array([0, 0, 0, 1]), self.disks[0]),
+            "disk_1": (np.array([0.2, 0, self.disk_height/2 + self.disk_height]), np.array([0, 0, 0, 1]), self.disks[1]),
+            "disk_2": (np.array([0.2, 0, self.disk_height/2 + 2*self.disk_height]), np.array([0, 0, 0, 1]), self.disks[2]),
+        }.values():
+            self.sim.data.set_joint_qpos(obj.joints[0], np.concatenate([np.array(obj_pos), np.array(obj_quat)]))
+                
         
         # Reset disks to initial configuration (stacked on leftmost pole)
         #
