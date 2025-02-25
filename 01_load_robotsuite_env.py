@@ -1,18 +1,24 @@
 import robosuite
 from robosuite.wrappers import GymWrapper
-import mujoco
-import stable_baselines3
+from environment.door_env import Door
 
 if __name__ == "__main__":
     # Create a Panda robot lifting environment
-    env = robosuite.make(
-        env_name="Lift",
-        robots="Panda",
-        has_renderer=True,
-        has_offscreen_renderer=True,
-        use_camera_obs=True,
-        reward_shaping=True,
-    )
+    # env = robosuite.make(
+    #     env_name="Lift",
+    #     robots="Panda",
+    #     has_renderer=True,
+    #     has_offscreen_renderer=True,
+    #     use_camera_obs=True,
+    #     reward_shaping=True,
+    # )
+    env = Door(
+            robots="Panda",
+            has_renderer=True,
+            has_offscreen_renderer=False,
+            use_camera_obs=False,
+            reward_shaping=True,
+        )
     env = GymWrapper(env)
     obs, _ = env.reset()
 
