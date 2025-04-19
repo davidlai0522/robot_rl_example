@@ -14,7 +14,7 @@ TOTAL_TIMESTEPS = 0
 REMAINING_TIMESTEPS = 0
 
 # -------------------------------------------------------------------------------
-# NOTE [CS5446]: this is the part where we should decide what RL algorithm to use
+# NOTE : this is the part where we should decide what RL algorithm to use
 # I'm using PPO from stable_baselines3 as an example here
 # -------------------------------------------------------------------------------
 def train(env, resume=False):

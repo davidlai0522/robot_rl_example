@@ -68,10 +68,10 @@ python3 ./02_panda_open_door_ppo.py --mode test --final_model_path trained_model
 This package is prepared by David Lai (LinkedIn: [link](https://sg.linkedin.com/in/en-han-lai-1808a11a3))
 
 ## Special Notes
-To my fellow CS5446 teammates, please trasure hunt for all the hidden notes in the scripts that are formatted in:
+Please trasure hunt for all the hidden notes in the scripts that are formatted in:
 ```python
 # -------------------------------------------------------------------------------
-# NOTE [CS5446]: Explaination
+# NOTE : Explaination
 # -------------------------------------------------------------------------------
 ```
 

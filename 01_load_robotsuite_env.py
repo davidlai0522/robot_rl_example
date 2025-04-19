@@ -23,7 +23,7 @@ if __name__ == "__main__":
     obs, _ = env.reset()
 
     # -------------------------------------------------------------------------------
-    # NOTE [CS5446]: You can see the action space here.
+    # NOTE : You can see the action space here.
     # The printout will be: Box(-1.0, 1.0, (7,), float32)
     # This means that the lower bound of the action space is -1.0 and the upper bound of the action space is 1.0,
     # And there are 7 joints to control.
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     print(f"The action space of Panda Robot is: {env.action_space}")
     
     # -------------------------------------------------------------------------------
-    # NOTE [CS5446]: You can see the observation space here.
+    # NOTE : You can see the observation space here.
     # The printout will be: Box(-inf, inf, (196654,), float32)
     # This means that the lower bound of the observation space is -inf and the upper bound of the observation space is inf,
     # And there are 196654 observations to observe.

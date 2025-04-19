@@ -10,7 +10,7 @@ from robosuite.utils.observables import Observable, sensor
 from robosuite.utils.placement_samplers import UniformRandomSampler
 
 # -------------------------------------------------------------------------------
-# NOTE [CS5446]: this is the part where the environment is defined.
+# NOTE : this is the part where the environment is defined.
 # Clarification: I didn't create this, but this is directly copied from robosuite
 # Source: https://github.com/ARISE-Initiative/robosuite/tree/master/robosuite/environments/manipulation
 # -------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ class Door(ManipulationEnv):
         )
 
     # -------------------------------------------------------------------------------
-    # NOTE [CS5446]: this is the part where the reward function is defined.
+    # NOTE : this is the part where the reward function is defined.
     # We can actually use any reward function we want here.
     # As you can see, the reward here is defined as a function of the distance between the door handle and the gripper
     # -------------------------------------------------------------------------------
@@ -251,7 +251,7 @@ class Door(ManipulationEnv):
         # else, we consider only the case if we're using shaped rewards
         elif self.reward_shaping:
             # -------------------------------------------------------------------------------
-            # NOTE [CS5446]: this is the part where the actual reward function is defined.
+            # NOTE : this is the part where the actual reward function is defined.
             # The reward function is a linear combination of two components: the reaching component and the rotating component.
             # The reaching component measures the distance between the door handle and the robot arm, with a reward of 0.25 for
             # a distance of 0 and a reward of 0 for a distance of greater than 1.0. This is done using the hyperbolic tangent
@@ -353,7 +353,7 @@ class Door(ManipulationEnv):
             self.handle_qpos_addr = self.sim.model.get_joint_qpos_addr(self.door.joints[1])
 
     # -------------------------------------------------------------------------------
-    # NOTE [CS5446]: this is the part where the observation is defined.
+    # NOTE : this is the part where the observation is defined.
     # Sensors are needed to observe the state of the environment.
     # Observations:
     # - door_pos: 3D position of the door
